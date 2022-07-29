@@ -10,3 +10,4 @@ link to our [user research](https://www.figma.com/file/6Y76LpFlCDB4gD1FogQIQt/Pr
 link to our [database sketch](https://dbdiagram.io/d/62dc497e0d66c7465537c6a7)
 
 Link to our [documentation](https://docs.google.com/document/d/1ZnLUCBjUNMblIwR58OmZkvLMHSPpoMAgKWLKpoGx-zs/edit?usp=sharing)
+Link to [individual contributions](https://docs.google.com/spreadsheets/d/1QLp4YW93r8Ha7Lt3syzdXHzdnVfuNkRMt9aSHMIt6OQ/edit?usp=drivesdk) 
