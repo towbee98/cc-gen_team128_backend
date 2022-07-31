@@ -1,20 +1,25 @@
-const mongoose= require('mongoose')
+const mongoose = require("mongoose");
 
-
-//CREATED NEW SCHEMA TO ADD "unique: true" to the "email" property
-const newUserSchema= new mongoose.Schema({
-    email:{
-        type:String,
-        required:[true,'Cannot be empty'],
-        unique: true
-    },
-    password:{
-        type:String,
-        required:[true,'Password cannot be empty']
-    }
+const userSchema = new mongoose.Schema({
+	firstName: {
+		type: String,
+		required: true,
+	},
+	lastName: {
+		type: String,
+		required: true,
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true,
+	},
+	password: {
+		type: String,
+		required: true,
+	},
 });
 
+const User = mongoose.model("User", userSchema);
 
-const newUserModel = mongoose.model('newUser', newUserSchema)
-
-module.exports= newUserModel
+module.exports = User;
