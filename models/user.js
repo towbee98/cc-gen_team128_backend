@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	phone:{
+		type:String,
+		required:true
+	},
 	email: {
 		type: String,
 		required: true,
@@ -18,6 +22,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	savedDesigns:{
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:'design'
+    }
 });
 
 const User = mongoose.model("User", userSchema);
