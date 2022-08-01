@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	phone:{
+		type:String,
+		required:true
+	},
 	email: {
 		type: String,
 		required: true,
@@ -18,7 +22,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	savedDownloads:{
+	savedDesigns:{
         type:[mongoose.Schema.Types.ObjectId],
         ref:'design'
     }

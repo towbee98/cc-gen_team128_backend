@@ -11,6 +11,7 @@ const uploadDesign=catchAsync(async(req,res,next)=>{
     category:req.body.category,
     downloadLink:req.body.downloadLink,
     })
+
     if(!newDesign) return next(new AppError('Error occured while uploading the design',400));
     res.status(201).json({
         status:"success",
