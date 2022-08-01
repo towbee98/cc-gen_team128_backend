@@ -18,6 +18,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	savedDownloads:{
+        type:[mongoose.Schema.Types.ObjectId],
+        ref:'design'
+    }
 });
 
 const User = mongoose.model("User", userSchema);
