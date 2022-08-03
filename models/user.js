@@ -9,9 +9,8 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	phoneNumber:{
-		type:String,
-		required:true
+	phoneNumber: {
+		type: String,
 	},
 	email: {
 		type: String,
@@ -22,10 +21,15 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	savedDesigns:{
-        type:[mongoose.Schema.Types.ObjectId],
-        ref:'design'
-    }
+	savedDesigns: {
+		type: [mongoose.Schema.Types.ObjectId],
+		ref: "design",
+	},
+	role: {
+		type: String,
+		enum: ["user", "admin"],
+		default: "user",
+	},
 });
 
 // google schema
