@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	phone:{
+	phoneNumber:{
 		type:String,
 		required:true
 	},
@@ -28,6 +28,24 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+// google schema
+const googleUserSchema = new mongoose.Schema({
+	google: 
+	{
+		id: {
+			type: String
+		},
+		name: {
+			type: String
+		},
+		email: {
+			type: String,
+		},
+	},
+});
+
 const User = mongoose.model("User", userSchema);
+const googleUser = mongoose.model("googleUser", googleUserSchema);
 
 module.exports = User;
+module.exports = googleUser;
