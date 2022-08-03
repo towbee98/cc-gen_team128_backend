@@ -6,6 +6,8 @@ function validateSignUp(user) {
 		lastName: Joi.string().required(),
 		email: Joi.string().email().required(),
 		password: Joi.string().min(7).required(),
+		phoneNumber: Joi.string().min(11).max(11).optional(),
+		role: Joi.string().valid("user", "admin").optional(),
 	});
 
 	return Schema.validate(user);

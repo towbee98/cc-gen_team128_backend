@@ -1,9 +1,13 @@
-const express= require('express');
-const router= express.Router();
+const express = require("express");
+const router = express.Router();
 
-const designController= require('../controllers/design.controller')
+const { Auth, IsAdmin } = require("../middlewares/auth");
+const designController = require("../controllers/design.controller");
 
-router.route('/designs').get(designController.fetchAllDesigns).post(designController.uploadDesign)
-router.route('/designs/:designId').get(designController.fetchDesign);
+router
+	.route("/")
+	.get(designController.fetchAllDesigns)
+	.post(Auth, IsAdmin, designController.uploadDesign);
+router.route("/:designId").get(designController.fetchDesign);
 
-module.exports=router
+module.exports = router;
