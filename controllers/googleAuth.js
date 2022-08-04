@@ -8,9 +8,9 @@ exports.googleAuthenticate = passport.authenticate('google', { scope: ['email', 
 
 // Redirect to user profile after successful login
 exports.googleRedirect = passport.authenticate('google',
-{session: false, successRedirect: '/profile', failureRedirect: '/*'}, (req, res)=>{
+{successRedirect: '/api/v1/users/profile', failureRedirect: '/*'}), (req, res) => {
 	jwt.sign(
-		{ existingUser: req.existingUser },
+		{ user: req.user },
 		process.env.JWT_SECRET,
 		{ expiresIn: process.env.JWT_EXPIRES_IN }, 
 		(err, token) => {
@@ -18,7 +18,8 @@ exports.googleRedirect = passport.authenticate('google',
 				return res.json({ token: null });
 			}
 			res.json({ token, });
+			console.log(token)
 		}
 	);
-	res.redirect("/profile")
-}); 
+	res.redirect("localhost:3000/api/v1/users/profile");
+}; 

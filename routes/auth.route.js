@@ -12,10 +12,5 @@ router.route("/google").get(googleAuthenticate);
 // retrieve user data using the access token received
 router.route("/google/callback").get(googleRedirect);
 //profile route after successful signin
-router.route("/profile").get((req, res) => {
-    console.log(req);
-    
-    res.send('Welcome')
-});
-
+ 
 module.exports = router;
