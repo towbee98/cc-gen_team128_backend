@@ -1,10 +1,9 @@
-// const passport = require('passport');
-const config = require("../config/env");
+const config = require("../../config/env");
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
-const googleUser = require('../models/user');
-require('dotenv').config();
+const user = require('../../models/user');
 
 
+// GOOGLE CONFIGURATIONS
 module.exports = (passport) => {
 	passport.serializeUser((user, done) => {
 		done(null, user.id)
@@ -21,17 +20,17 @@ module.exports = (passport) => {
 		clientSecret:config.GOOGLE_CLIENT_SECRET,
 		callbackURL:config.GOOGLE_CALLBACK_URL,
 		passReqToCallback:true
-	}, 
+	},
 	async(request, accesstoken, refreshtoken, profile, done) => {
 		try {
-			let existingUser = await googleUser.findOne({ 'google.id': profile.id });
+			let existingUser = await user.findOne({ 'google.id': profile.id });
 
 			// if user exists, return the user
 			if (existingUser) {
 				return done(null, existingUser)
 			} else {
 				//if user does not exist, create a new user
-				const newUser = new googleUser({
+				const newUser = new user({
 				method: 'google',
 				google: {
 					id: profile.id,
@@ -47,5 +46,5 @@ module.exports = (passport) => {
 			return done(error, false);
 		}
 	}
-	))
+	));
 };

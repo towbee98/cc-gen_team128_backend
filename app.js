@@ -7,7 +7,8 @@ const userRouter = require("./routes/user.route");
 const globalErrorHandler = require("./controllers/error.controller");
 const AppError = require("./utils/appError");
 const passport = require('passport');
-require('./controllers/passportConfig')(passport);
+require('./controllers/passportConfig/google')(passport);
+require('./controllers/passportConfig/facebook')(passport);
 const session = require("express-session");
 
 
