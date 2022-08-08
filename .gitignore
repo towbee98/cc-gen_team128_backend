@@ -104,3 +104,6 @@ dist
 .tern-port
 
 user.rest
+
+#Google drive file
+service.json
