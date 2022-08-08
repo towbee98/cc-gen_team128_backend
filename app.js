@@ -7,14 +7,14 @@ const AppError = require("./utils/appError");
 
 // body-parser
 app.use(express.json());
-
+app.use(express.urlencoded({extended:true}))
 // routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/design",designRouter);
+app.use("/api/v1/designs",designRouter);
 // undefined routes
 app.use("/*", (req, res, next) => {
-	return next(
-		new AppError("Something went wrong, this page deosn't seem to exist")
+	 next(
+		new AppError("Something went wrong, this page deosn't seem to exist",404)
 	);
 });
 

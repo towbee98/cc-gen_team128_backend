@@ -1,9 +1,19 @@
 const express= require('express');
-const router= express.Router();
+const multer=require("multer");
 
+const router= express.Router();
+const upload=multer();
 const designController= require('../controllers/design.controller')
 
-router.route('/designs').get(designController.fetchAllDesigns).post(designController.uploadDesign)
-router.route('/designs/:designId').get(designController.fetchDesign);
+router.route('/')
+    .get(designController.fetchAllDesigns)
+    .post(upload.fields([
+    {name:"compressedFile",maxCount:1},
+    ]),designController.uploadDesign)
+router.route('/saved/:designId').post(designController.saveDesign)
+router.route('/saved').get(designController.fetchSavedDesigns)
+router.route('/:designId')
+.get(designController.fetchDesign);
+router.route('/:designId/download').get(designController.downloadDesign)
 
 module.exports=router
