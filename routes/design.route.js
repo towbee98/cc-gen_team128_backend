@@ -5,9 +5,11 @@ const router= express.Router();
 const upload=multer();
 const designController= require('../controllers/design.controller')
 
+const { Auth, IsAdmin } = require("../middlewares/auth");
+
 router.route('/')
     .get(designController.fetchAllDesigns)
-    .post(upload.fields([
+    .post(Auth, IsAdmin,upload.fields([
     {name:"compressedFile",maxCount:1},
     ]),designController.uploadDesign)
 router.route('/saved/:designId').post(designController.saveDesign)
@@ -16,4 +18,5 @@ router.route('/:designId')
 .get(designController.fetchDesign);
 router.route('/:designId/download').get(designController.downloadDesign)
 
-module.exports=router
+
+module.exports = router;

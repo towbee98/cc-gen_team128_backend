@@ -14,3 +14,4 @@ Link to our [documentation](https://docs.google.com/document/d/1ZnLUCBjUNMblIwR5
 Link to [individual contributions](https://docs.google.com/spreadsheets/d/1QLp4YW93r8Ha7Lt3syzdXHzdnVfuNkRMt9aSHMIt6OQ/edit?usp=drivesdk) 
 
 Link to [presentation slides](https://www.figma.com/proto/LdGc8lbpgUf0qdofxwa0e8/Proj_team_128?page-id=452%3A284&node-id=460%3A1471&viewport=701%2C-783%2C0.55&scaling=contain&starting-point-node-id=453%3A336)
+link to [screens](https://www.figma.com/file/LdGc8lbpgUf0qdofxwa0e8/Proj_team_128?node-id=43%3A1669)
