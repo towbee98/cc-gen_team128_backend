@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const { User } = require("../models/user");
 const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 const { hashedPassword, comparePassword } = require("../utils/helpers");
@@ -12,7 +12,7 @@ const {
 exports.signup = catchAsync(async (req, res, next) => {
 	// validate user body request
 	const { error } = validateSignUp(req.body);
-
+	console.log(req.body);
 	if (error) return next(new AppError(error.message, 400));
 
 	// check if user exists
@@ -32,7 +32,7 @@ exports.signup = catchAsync(async (req, res, next) => {
 		lastName: req.body.lastName,
 		email: req.body.email,
 		password: hashPassword,
-		phoneNumber: req.body.phoneNumber,
+		phoneNumber: req.body.phoneNumber
 	});
 
 	newUser.password = undefined;

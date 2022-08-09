@@ -1,5 +1,5 @@
 const FacebookStrategy = require('passport-facebook');
-const user = require('../../models/user');
+const { facebookUser } = require('../../models/user');
 require('dotenv').config();
 
 
@@ -29,7 +29,7 @@ module.exports = (passport) => {
 				firstName: first_name,
 				lastName: last_name
 				};
-				new user(userData).save();
+				new facebookUser(userData).save();
 				done(null, profile);
 			} catch (error) {
 				return done(error, false)

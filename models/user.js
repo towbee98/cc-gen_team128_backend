@@ -67,8 +67,10 @@ const facebookUserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 const googleUser = mongoose.model("googleUser", googleUserSchema);
-const facebookUser = mongoose.model("facebookUser", facebookUserSchema)
+ const facebookUser = mongoose.model("facebookUser", facebookUserSchema)
 
-module.exports = User;
-module.exports = googleUser;
-module.exports = facebookUser;
+module.exports = {
+	User,
+	googleUser,
+	facebookUser
+}

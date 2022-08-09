@@ -1,6 +1,6 @@
 const config = require("../../config/env");
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
-const user = require('../../models/user');
+const { User } = require('../../models/user');
 
 
 // GOOGLE CONFIGURATIONS
@@ -10,7 +10,7 @@ module.exports = (passport) => {
 	});
 
 	passport.deserializeUser((id, done) => {
-		googleUser.findById(id, (err, user) => {
+		User.findById(id, (err, user) => {
 			done(err, user)
 		})
 	});
@@ -23,7 +23,7 @@ module.exports = (passport) => {
 	},
 	async(request, accesstoken, refreshtoken, profile, done) => {
 		try {
-			let existingUser = await user.findOne({ 'google.id': profile.id });
+			let existingUser = await User.findOne({ 'google.id': profile.id });
 
 			// if user exists, return the user
 			if (existingUser) {
