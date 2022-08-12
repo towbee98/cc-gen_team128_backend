@@ -104,6 +104,10 @@ dist
 .tern-port
 
 user.rest
+<<<<<<< HEAD
  
 #Google drive file
 service.json
+=======
+rest
+>>>>>>> 16cb09a6b5dfeb51d97a1ac4c6d04be87be6e11f

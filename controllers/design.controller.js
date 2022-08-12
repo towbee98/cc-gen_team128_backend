@@ -102,7 +102,7 @@ const downloadDesign = catchAsync(async (req, res, next) => {
     downloadFile = { ...design.compressedFile };
     const dest = fs.createWriteStream(`./${downloadFile.name}.zip`);
     await download(downloadFile, res, dest);
-    fs.unlinkSync(`${downloadFile.name}.zip`);
+    //  fs.unlinkSync(`${downloadFile.name}.zip`);
 });
 
 const addComment = catchAsync(async (req, res, next) => {

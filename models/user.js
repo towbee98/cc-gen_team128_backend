@@ -32,6 +32,45 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-const User = mongoose.model('User', userSchema);
+// google schema
+const googleUserSchema = new mongoose.Schema({
+    google: {
+        id: {
+            type: String,
+        },
+        name: {
+            type: String,
+        },
+        email: {
+            type: String,
+        },
+    },
+});
 
-module.exports = User;
+// facebook schema
+const facebookUserSchema = new mongoose.Schema({
+    facebook: {
+        email: {
+            type: String,
+        },
+        firstName: {
+            type: String,
+        },
+        lastName: {
+            type: String,
+        },
+    },
+});
+
+const User = mongoose.model('User', userSchema);
+const googleUser = mongoose.model('googleUser', googleUserSchema);
+const facebookUser = mongoose.model(
+    'facebookUser',
+    facebookUserSchema
+);
+
+module.exports = {
+    User,
+    googleUser,
+    facebookUser,
+};
