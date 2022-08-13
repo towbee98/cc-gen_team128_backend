@@ -3,9 +3,9 @@ Backend repository for credit card design website.
 This will also serve as our main repository in which the template files will be imported to
 from our [Frontend repository](https://github.com/zuri-training/cc-gen_team128_frontend)
 
-DEPLOYMENT PROCESS
+# DEPLOYMENT PROCESS
 - Clone the repository and open in vs code
-- In the command line, input "npm run start:dev" to start up the server locally. 
+- In the command line, input `npm run start:dev` to start up the server locally. 
 - view our [API DOCUMENTATION](https://documenter.getpostman.com/view/21602276/VUjMo5vw) to see how to make requests to the API. 
 
 
