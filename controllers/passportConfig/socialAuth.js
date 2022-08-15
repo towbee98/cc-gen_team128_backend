@@ -10,7 +10,7 @@ exports.googleAuthenticate = passport.authenticate('google', { scope: ['email', 
 
 // Redirect to user profile after successful login
 exports.googleRedirect = passport.authenticate('google',
-{session: false, successRedirect: "/api/v1/users/profile", failureRedirect: "/*"}), (req, res) => {
+{session: false, successRedirect: "/api/v1/users/me", failureRedirect: "/*"}), (req, res) => {
 	try {
 		jwt.sign(
 			{ user: req.user },
@@ -38,6 +38,6 @@ exports.facebookAuthenticate = passport.authenticate("facebook");
 // redirect to user profile after successful login
 exports.facebookRedirect =  passport.authenticate("facebook", {
 	session: false,
-    successRedirect: "/api/v1/users/profile",
+    successRedirect: "/api/v1/users/me",
     failureRedirect: "/*"
 })
